@@ -1,0 +1,92 @@
+@import '../assets/scsss/theme.scss';
+
+.gallery-img-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 333ms ease-in-out;
+  transition-delay: 100ms;
+
+  position: relative;
+
+  background-image: url("../assets/images/placeholder-image.png");
+  background-size: contain;
+
+  .gallery-img {
+    width: 100%;
+  }
+
+  .gallery-img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: $white;
+    opacity: 0;
+    transition: all 0.8s ease;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .photo-name {
+      font-weight: bold;
+      position: relative;
+    }
+
+    .photo-name::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -50%;
+      width: 25%;
+      left: 37.5%;
+      border-top: 2px solid $white;
+    }
+
+    .photo-author {
+      font-style: italic;
+    }
+
+    .photo-like-button {
+      display: inline-block;
+      padding: 0.3em 1.2em;
+      border: 0.1em solid $white;
+      border-radius: 2em;
+      box-sizing: border-box;
+      text-decoration: none;
+      font-weight: 300;
+      color: $white;
+      text-align: center;
+      transition: all 0.2s;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .photo-like-button.liked {
+      background-color: $white;
+      color: rgba($black, 0.5);
+    }
+
+    .photo-like-button:hover {
+      background-color: rgba($white, 0.5);
+    }
+  }
+
+  .gallery-img-overlay-content {
+    & > * {
+      margin-bottom: 1.25em;
+      font-size: 1em;
+    }
+  }
+
+  &:hover {
+    .gallery-img-overlay {
+      opacity: 1;
+    }
+  }
+}
